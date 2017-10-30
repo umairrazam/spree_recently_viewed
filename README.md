@@ -19,7 +19,7 @@ This extension maintains and displays a list of the products a user has recently
 
 3. Copy & run migrations
   ```ruby
-  bundle exec rails g spree:recently_viewed:install
+  bundle exec rails g spree_recently_viewed:install
   ```
 
 4. Restart your server
