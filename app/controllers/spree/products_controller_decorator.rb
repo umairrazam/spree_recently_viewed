@@ -1,24 +1,26 @@
-module Spree
-  ProductsController.class_eval do
-    skip_before_action :set_current_order, only: :recently_viewed
-    after_action :save_recently_viewed, only: :recently_viewed
-
-    def recently_viewed
+module Spree::ProductsControllerDecorator
+  def self.prepended(base)
+    base.skip_before_action :set_current_order, only: :recently_viewed
+    base.after_action :save_recently_viewed, only: :recently_viewed
+    
+    def base.recently_viewed
       render 'spree/products/recently_viewed', layout: false
     end
+  end
 
-    private
+  private
 
-    def save_recently_viewed
-      id = params[:product_id]
-      return unless id.present?
+  def save_recently_viewed
+    id = params[:product_id]
+    return unless id.present?
 
-      rvp = (cookies['recently_viewed_products'] || '').split(', ')
-      rvp.delete(id)
-      rvp << id unless rvp.include?(id.to_s)
-      rvp_max_count = Spree::RecentlyViewed::Config.preferred_recently_viewed_products_max_count
-      rvp.delete_at(0) if rvp.size > rvp_max_count.to_i
-      cookies['recently_viewed_products'] = rvp.join(', ')
-    end
+    rvp = (cookies['recently_viewed_products'] || '').split(', ')
+    rvp.delete(id)
+    rvp << id unless rvp.include?(id.to_s)
+    rvp_max_count = Spree::RecentlyViewed::Config.preferred_recently_viewed_products_max_count
+    rvp.delete_at(0) if rvp.size > rvp_max_count.to_i
+    cookies['recently_viewed_products'] = rvp.join(', ')
   end
 end
+
+Spree::ProductsController.prepend Spree::ProductsControllerDecorator
