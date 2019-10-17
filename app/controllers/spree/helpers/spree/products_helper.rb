@@ -5,7 +5,7 @@ module Spree
     end
   
     def cached_recently_viewed_products
-      Spree::Product.new.find_by_array_of_ids(cached_recently_viewed_products_ids)
+      Spree::Product.find_by_array_of_ids(cached_recently_viewed_products_ids)
     end
   end
 end
