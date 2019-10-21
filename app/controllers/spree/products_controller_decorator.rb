@@ -1,13 +1,13 @@
 module Spree::ProductsControllerDecorator
   def self.prepended(base)
-    base.skip_before_action :set_current_order, only: :recently_viewed
-    base.after_action :save_recently_viewed, only: :recently_viewed
     base.include Spree::ProductsHelper
     base.helper_method [:cached_recently_viewed_products, :cached_recently_viewed_products_ids]
+    base.skip_before_action :set_current_order, only: :recently_viewed
+    base.after_action :save_recently_viewed, only: :recently_viewed
+  end
 
-    def base.recently_viewed
-      render 'spree/products/recently_viewed', layout: false
-    end
+  def recently_viewed
+    render 'spree/products/recently_viewed', layout: false
   end
 
   private
