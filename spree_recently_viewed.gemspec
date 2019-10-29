@@ -21,7 +21,10 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_runtime_dependency 'spree_core', '>= 3.1.0', '< 5.0'
+  spree_version =  '>= 3.1.0', '< 5.0'
+  s.add_dependency 'spree_core', spree_version
+  s.add_dependency 'spree_frontend', spree_version
+  s.add_runtime_dependency 'spree_extension'
   s.add_dependency 'deface', '~> 1.0'
 
   s.add_development_dependency 'rspec-rails', '~> 4.0.0.beta2'
