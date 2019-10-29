@@ -1,5 +1,3 @@
-include Spree::ProductsHelper
-
 RSpec.feature 'Recently Viewed Products', :js do
   background do
     %w(Mug Shirt Jersey).each { |name| create(:product, name: name.to_s) }
