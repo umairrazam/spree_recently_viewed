@@ -21,11 +21,13 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.has_rdoc = false
+  spree_version =  '>= 3.1.0', '< 5.0'
+  s.add_dependency 'spree_core', spree_version
+  s.add_dependency 'spree_frontend', spree_version
+  s.add_runtime_dependency 'spree_extension'
+  s.add_dependency 'deface', '~> 1.0'
 
-  s.add_runtime_dependency 'spree_core', '>= 3.1.0', '< 4.0'
-
-  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'rspec-rails', '~> 4.0.0.beta2'
   s.add_development_dependency 'factory_bot', '~> 4.7'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'capybara-screenshot'
@@ -40,7 +42,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rubocop'
   s.add_development_dependency 'sprockets-rails'
   s.add_development_dependency 'mysql2'
-  s.add_development_dependency 'pg', '~> 0.18'
+  s.add_development_dependency 'pg'
   s.add_development_dependency 'appraisal'
   s.add_development_dependency 'puma'
 end

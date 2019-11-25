@@ -1,5 +1,5 @@
 module Spree
-  BaseHelper.module_eval do
+  module RecentlyViewedProductsHelper
     def cached_recently_viewed_products_ids
       (cookies['recently_viewed_products'] || '').split(', ')
     end
