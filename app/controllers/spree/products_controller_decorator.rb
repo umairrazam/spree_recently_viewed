@@ -2,7 +2,7 @@ module Spree::ProductsControllerDecorator
   def self.prepended(base)
     base.include Spree::RecentlyViewedProductsHelper
     base.helper_method [:cached_recently_viewed_products, :cached_recently_viewed_products_ids]
-    base.skip_before_action :set_current_order, only: :recently_viewed
+    base.before_action :set_current_order, except: :recently_viewed
     base.after_action :save_recently_viewed, only: :recently_viewed
   end
 
