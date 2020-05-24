@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version     = SpreeRecentlyViewed.version
   s.summary     = 'Adds recently viewed products to Spree'
   s.description = s.summary
-  s.required_ruby_version = '>= 2.1.0'
+  s.required_ruby_version = '>= 2.5.0'
 
   s.authors     = ['Roman Smirnov', 'Brian Quinn']
   s.email       = 'brian@railsdog.com'
