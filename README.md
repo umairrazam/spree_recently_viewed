@@ -34,7 +34,7 @@ See corresponding [guidelines][4]
 
 ---
 
-Copyright (c) 2009-2015 [Roman Smirnov][6], [Brian Quinn][7] and other [contributors][8], released under the [New BSD License][3]
+Copyright (c) 2009-2020 [Roman Smirnov][6], [Brian Quinn][7] and other [contributors][8], released under the [New BSD License][3]
 
 [1]: http://www.fsf.org/licensing/essays/free-sw.html
 [2]: https://github.com/spree-contrib/spree_recently_viewed/issues
