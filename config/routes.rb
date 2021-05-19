@@ -1,3 +1,4 @@
 Spree::Core::Engine.add_routes do
-  get '/recently_viewed_products' => 'products#recently_viewed'
+  get '/reload-cart-form', to: 'products#reload_cart_form'
+  get '/app_recently_viewed_products' => 'products#app_recently_viewed'
 end
